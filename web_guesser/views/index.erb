@@ -1,14 +1,36 @@
 <html>
     <head>
-        <body>
+        <style>
+            body {
+                font-size: 30px;
+                margin: 5%;
+                background: <%= backcolor %>;
+            }
+            p {
+                color: <%= textcolor %>;
+            }
             
-            <form>
+        </style>
+        <body>
+            <% if guess_count >= 0 %>
+              <form>
                 <input type='text' name='guess' />
                 <input type='submit' value='Guess!' />
-            </form>
-            <p>
+              </form>
+              <p>
                 <%= message %>
-            </p>
+              </p>
+              <% else %>
+                <% if guess.to_i == number %>
+                  <%= message %>
+                <% else %>
+                  "YOU LOSE!!!!:("
+                "The number was <%= number %>
+                <% end %>
+              <p>
+                
+              </p>
+            <% end %>
         </body>
     </head>
 </html>
